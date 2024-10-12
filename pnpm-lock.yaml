@@ -11,6 +11,9 @@ importers:
       eslint:
         specifier: 8.x
         version: 8.57.1
+      thiis:
+        specifier: ^2.0.5
+        version: 2.0.5
 
 packages:
 
@@ -365,6 +368,10 @@ packages:
 
   text-table@0.2.0:
     resolution: {integrity: sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==}
+
+  thiis@2.0.5:
+    resolution: {integrity: sha512-zX9A0yIi8ZYY8CQadxEqevx4m8dXwm0XH8NMqLRm3qVQoUs2fZhpC/Hi8C68fnfEyNilpV7kjsByPRZj6p6qGw==}
+    engines: {engines: '>=12.0.0'}
 
   type-check@0.4.0:
     resolution: {integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==}
@@ -748,6 +755,8 @@ snapshots:
       has-flag: 4.0.0
 
   text-table@0.2.0: {}
+
+  thiis@2.0.5: {}
 
   type-check@0.4.0:
     dependencies:

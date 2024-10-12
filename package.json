@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "eslint": "8.x"
+    "eslint": "8.x",
+    "thiis": "^2.0.5"
   }
 }

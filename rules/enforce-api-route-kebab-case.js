@@ -1,3 +1,5 @@
+const { is } = require("thiis");
+
 module.exports = {
   meta: {
     type: "suggestion",
@@ -21,9 +23,7 @@ module.exports = {
           typeof node.arguments[0].value === "string"
         ) {
           const path = node.arguments[0].value;
-          const kebabCasePattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
-
-          if (!kebabCasePattern.test(path)) {
+          if (!is.kebabCase(path)) {
             context.report({
               node: node.arguments[0],
               messageId: "kebabCase",
