@@ -10,7 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "case": "^1.6.3",
-    "eslint": "8.x",
-    "thiis": "^2.0.5"
+    "eslint": "8.x"
   }
 }

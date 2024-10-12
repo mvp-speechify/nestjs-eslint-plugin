@@ -1,4 +1,4 @@
-const { is } = require("thiis");
+const Case = require("case");
 
 module.exports = {
   meta: {
@@ -25,7 +25,7 @@ module.exports = {
         if (controllerDecorator) {
           for (const arg of controllerDecorator.expression.arguments) {
             const path = arg.value;
-            if (typeof path === "string" && !is.kebabCase(path)) {
+            if (typeof path === "string" && Case.of(path) !== "kebab") {
               context.report({
                 node: controllerDecorator,
                 messageId: "kebabCase",
