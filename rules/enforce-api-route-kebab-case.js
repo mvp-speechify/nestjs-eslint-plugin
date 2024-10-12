@@ -15,19 +15,22 @@ module.exports = {
   },
   create(context) {
     return {
-      Decorator(node) {
-        if (
-          node.callee &&
-          node.callee.name === "Controller" &&
-          node.arguments.length &&
-          typeof node.arguments[0].value === "string"
-        ) {
-          const path = node.arguments[0].value;
-          if (!is.kebabCase(path)) {
-            context.report({
-              node: node.arguments[0],
-              messageId: "kebabCase",
-            });
+      ClassDeclaration(node) {
+        const controllerDecorator = node.decorators.find((decorator) => {
+          if (decorator.expression.callee.name === "Controller") {
+            return decorator;
+          }
+        });
+
+        if (controllerDecorator) {
+          for (const arg of controllerDecorator.expression.arguments) {
+            const path = arg.value;
+            if (typeof path === "string" && !is.kebabCase(path)) {
+              context.report({
+                node: controllerDecorator,
+                messageId: "kebabCase",
+              });
+            }
           }
         }
       },
