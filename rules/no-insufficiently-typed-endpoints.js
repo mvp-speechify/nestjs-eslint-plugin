@@ -48,7 +48,14 @@ module.exports = {
               (prop) => prop.key.name === "summary"
             );
 
-          if (!summaryProperty || summaryProperty.value.value.trim() === "") {
+          if (
+            !summaryProperty ||
+            (summaryProperty.value.type === "Literal" &&
+              summaryProperty.value.value.trim() === "") ||
+            (summaryProperty.value.type === "TemplateLiteral" &&
+              summaryProperty.value.quasis.length > 0 &&
+              summaryProperty.value.quasis[0].value.cooked.trim() === "")
+          ) {
             context.report({
               node: apiOperationDecorator,
               messageId: "emptySummary",
