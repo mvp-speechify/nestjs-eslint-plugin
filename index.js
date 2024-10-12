@@ -1,6 +1,6 @@
 // index.js
 module.exports = {
   rules: {
-    "no-console-log": require("./rules/my-rule"),
+    "no-insufficiently-typed-endpoints": require("./rules/no-insufficiently-typed-endpoints"),
   },
 };
