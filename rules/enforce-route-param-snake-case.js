@@ -37,16 +37,19 @@ module.exports = {
           }
 
           const route = routes.value;
-          const routeParams = [...route.matchAll(/:([a-zA-Z0-9_]+)/)];
+          const routeParams = [...route.matchAll(/:([a-zA-Z0-9_]+)/g)];
           if (routeParams.length === 0) {
             return;
           }
 
-          for (const param of routeParams) {
-            if (Case.of(param) !== "snake") {
+          for (const routeParam of routeParams) {
+            const paramValue = routeParam[1];
+            const isSnakeCase = Case.of(paramValue) === "snake";
+            const isLower = Case.of(paramValue) === "lower";
+            if (!isSnakeCase && !isLower) {
               context.report({
                 node: decorator,
-                message: `Route parameters should be in snake_case, i.e. ${Case.snake(param)}`,
+                message: `Route parameters should be in snake_case, i.e. ${Case.snake(paramValue)}`,
               });
             }
           }
