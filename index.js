@@ -9,10 +9,10 @@ module.exports = {
   configs: {
     recommended: {
       rules: {
-        "no-insufficiently-typed-endpoints": "error",
-        "no-missing-api-bearer-auth": "error",
-        "enforce-api-route-kebab-case": "error",
-        "enforce-controller-api-tags": "error",
+        "speechify-nestjs/no-insufficiently-typed-endpoints": "error",
+        "speechify-nestjs/no-missing-api-bearer-auth": "error",
+        "speechify-nestjs/enforce-api-route-kebab-case": "error",
+        "speechify-nestjs/enforce-controller-api-tags": "error",
       },
     },
   },

@@ -1,5 +1,5 @@
 {
-  "name": "eslint-plugin-speechify-mvp-nestjs",
+  "name": "eslint-plugin-speechify-nestjs",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
