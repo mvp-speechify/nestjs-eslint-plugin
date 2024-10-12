@@ -68,10 +68,7 @@ module.exports = {
               (prop) => prop.key.name === "status"
             );
 
-          if (
-            !statusProperty ||
-            typeof statusProperty.value.value !== "number"
-          ) {
+          if (!statusProperty) {
             context.report({
               node: apiResponseDecorator,
               messageId: "emptyStatus",
