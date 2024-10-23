@@ -25,7 +25,9 @@ module.exports = {
         if (controllerDecorator) {
           for (const arg of controllerDecorator.expression.arguments) {
             const path = arg.value;
-            if (typeof path === "string" && Case.of(path) !== "kebab") {
+            const isKebabCase = Case.of(path) === "kebab";
+            const isLower = Case.of(path) === "lower";
+            if (typeof path === "string" && !isKebabCase && !isLower) {
               context.report({
                 node: controllerDecorator,
                 messageId: "kebabCase",
