@@ -9,10 +9,9 @@ module.exports = {
     },
     messages: {
       missingApiOperation: "Method is missing the @ApiOperation decorator.",
-      missingApiResponse: "Method is missing the @ApiResponse decorator.",
+      missingEndpointResponse:
+        "Method is missing the @EndpointResponse decorator.",
       emptySummary: "@ApiOperation must have a non-empty summary.",
-      emptyStatus: "@ApiResponse must have a non-empty status key.",
-      emptyType: "@ApiResponse must have a non-empty type key.",
     },
     schema: [], // no options
   },
@@ -32,8 +31,8 @@ module.exports = {
           return decorator.expression.callee.name === "ApiOperation";
         });
 
-        const apiResponseDecorator = decorators.find((decorator) => {
-          return decorator.expression.callee.name === "ApiResponse";
+        const endpointResponseDecorator = decorators.find((decorator) => {
+          return decorator.expression.callee.name === "EndpointResponse";
         });
 
         if (!apiOperationDecorator) {
@@ -63,37 +62,11 @@ module.exports = {
           }
         }
 
-        if (!apiResponseDecorator) {
+        if (!endpointResponseDecorator) {
           context.report({
             node,
-            messageId: "missingApiResponse",
+            messageId: "missingEndpointResponse",
           });
-        } else {
-          // Check if the status exists and is non-empty
-          const statusProperty =
-            apiResponseDecorator.expression.arguments[0]?.properties.find(
-              (prop) => prop.key.name === "status"
-            );
-
-          if (!statusProperty) {
-            context.report({
-              node: apiResponseDecorator,
-              messageId: "emptyStatus",
-            });
-          }
-
-          // Check if the type exists and is non-empty
-          const typeProperty =
-            apiResponseDecorator.expression.arguments[0]?.properties.find(
-              (prop) => prop.key.name === "type"
-            );
-
-          if (!typeProperty || !typeProperty.value) {
-            context.report({
-              node: apiResponseDecorator,
-              messageId: "emptyType",
-            });
-          }
         }
       }
     }
