@@ -10,7 +10,7 @@ module.exports = {
   configs: {
     recommended: {
       rules: {
-        "speechify-nestjs/no-insufficiently-typed-endpoints": "warn",
+        "speechify-nestjs/no-insufficiently-typed-endpoints": "error",
         "speechify-nestjs/no-missing-api-bearer-auth": "error",
         "speechify-nestjs/enforce-api-route-kebab-case": "error",
         "speechify-nestjs/enforce-controller-api-tags": "error",
