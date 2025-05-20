@@ -9,6 +9,7 @@ module.exports = {
     "enforce-dto-snake-case": require("./rules/enforce-dto-snake-case"),
     "prefer-api-property-optional": require("./rules/prefer-api-property-optional"),
     "prevent-mismatching-optional-type": require("./rules/prevent-mismatching-optional-type"),
+    "check-exclude-transform": require("./rules/check-exclude-transform"),
   },
   configs: {
     recommended: {
@@ -21,6 +22,7 @@ module.exports = {
         "speechify-nestjs/enforce-dto-snake-case": "warn",
         "speechify-nestjs/prefer-api-property-optional": "warn",
         "speechify-nestjs/prevent-mismatching-optional-type": "error",
+        "speechify-nestjs/check-exclude-transform": "error",
       },
     },
   },

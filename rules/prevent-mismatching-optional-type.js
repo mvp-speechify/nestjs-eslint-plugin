@@ -82,6 +82,11 @@ module.exports = {
 
         const decorators = node.decorators;
 
+        // If property has @ApiHideProperty, skip all checks
+        if (hasDecorator(decorators, "ApiHideProperty")) {
+          return;
+        }
+
         const isApiPropertyOptional = hasApiPropertyOptional(decorators);
         const isApiPropertyRequiredFalse =
           hasApiPropertyRequiredFalse(decorators);
