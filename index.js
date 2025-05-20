@@ -7,6 +7,8 @@ module.exports = {
     "enforce-controller-api-tags": require("./rules/enforce-controller-api-tags"),
     "enforce-route-param-snake-case": require("./rules/enforce-route-param-snake-case"),
     "enforce-dto-snake-case": require("./rules/enforce-dto-snake-case"),
+    "prefer-api-property-optional": require("./rules/prefer-api-property-optional"),
+    "prevent-mismatching-optional-type": require("./rules/prevent-mismatching-optional-type"),
   },
   configs: {
     recommended: {
@@ -17,6 +19,8 @@ module.exports = {
         "speechify-nestjs/enforce-controller-api-tags": "error",
         "speechify-nestjs/enforce-route-param-snake-case": "error",
         "speechify-nestjs/enforce-dto-snake-case": "warn",
+        "speechify-nestjs/prefer-api-property-optional": "warn",
+        "speechify-nestjs/prevent-mismatching-optional-type": "error",
       },
     },
   },
