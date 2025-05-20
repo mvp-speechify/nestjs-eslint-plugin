@@ -6,6 +6,7 @@ module.exports = {
     "enforce-api-route-kebab-case": require("./rules/enforce-api-route-kebab-case"),
     "enforce-controller-api-tags": require("./rules/enforce-controller-api-tags"),
     "enforce-route-param-snake-case": require("./rules/enforce-route-param-snake-case"),
+    "enforce-dto-snake-case": require("./rules/enforce-dto-snake-case"),
   },
   configs: {
     recommended: {
@@ -15,6 +16,7 @@ module.exports = {
         "speechify-nestjs/enforce-api-route-kebab-case": "error",
         "speechify-nestjs/enforce-controller-api-tags": "error",
         "speechify-nestjs/enforce-route-param-snake-case": "error",
+        "speechify-nestjs/enforce-dto-snake-case": "warn",
       },
     },
   },

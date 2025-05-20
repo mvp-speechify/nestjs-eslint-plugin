@@ -49,7 +49,9 @@ module.exports = {
             if (!isSnakeCase && !isLower) {
               context.report({
                 node: decorator,
-                message: `Route parameters should be in snake_case, i.e. ${Case.snake(paramValue)}`,
+                message: `Route parameters should be in snake_case, i.e. ${Case.snake(
+                  paramValue
+                )}`,
               });
             }
           }
